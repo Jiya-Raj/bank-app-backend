@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
@@ -11,8 +11,6 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  private readonly fb = inject(FormBuilder);
-
   isSubmitting = false;
   errorMessage = '';
 
@@ -23,6 +21,7 @@ export class LoginComponent {
   });
 
   constructor(
+    private readonly fb: FormBuilder,
     private readonly auth: AuthService,
     private readonly router: Router,
     private readonly errors: ErrorHandlerService
