@@ -1,0 +1,10 @@
+<div class="card">
+  <h2>Withdraw</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>Account Number <input formControlName="accountNumber" /></label>
+    <label>Amount <input type="number" formControlName="amount" /></label>
+    <app-error-alert [message]="errorMessage"></app-error-alert>
+    <p *ngIf="successMessage">{{ successMessage }}</p>
+    <button type="submit" [disabled]="loading">{{ loading ? 'Processing...' : 'Submit Withdrawal' }}</button>
+  </form>
+</div>
