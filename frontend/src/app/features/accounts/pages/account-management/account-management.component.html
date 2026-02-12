@@ -1,0 +1,18 @@
+<div class="card p-3">
+  <h4>Create Account</h4>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label">Account Holder Name</label>
+      <input class="form-control" formControlName="name" />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Initial Balance</label>
+      <input type="number" class="form-control" formControlName="initialBalance" />
+    </div>
+    <div class="col-12 d-flex gap-2">
+      <button class="btn btn-dark" [disabled]="isSubmitting" type="submit">{{ isSubmitting ? 'Creating...' : 'Create' }}</button>
+    </div>
+  </form>
+  <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+</div>
