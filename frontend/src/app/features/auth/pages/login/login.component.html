@@ -1,0 +1,29 @@
+<div class="login-shell">
+  <div class="login-card">
+    <h2>Bank Management Login</h2>
+    <p class="text-muted">Internal access only</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input class="form-control" formControlName="username" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" />
+      </div>
+
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" formControlName="remember" id="remember" />
+        <label class="form-check-label" for="remember">Remember this session</label>
+      </div>
+
+      <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+      <button class="btn btn-dark w-100" [disabled]="isSubmitting" type="submit">
+        {{ isSubmitting ? 'Signing in...' : 'Log in' }}
+      </button>
+    </form>
+  </div>
+</div>

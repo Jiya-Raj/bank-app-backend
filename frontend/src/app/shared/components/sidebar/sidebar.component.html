@@ -1,0 +1,17 @@
+<aside class="sidebar">
+  <h4>Bank BMS</h4>
+  <a routerLink="/dashboard">Dashboard</a>
+
+  <ng-container *ngIf="auth.hasRole(['CLERK'])">
+    <a routerLink="/transactions/deposit">Deposit</a>
+    <a routerLink="/transactions/withdraw">Withdraw</a>
+    <a routerLink="/transactions/history">History</a>
+  </ng-container>
+
+  <ng-container *ngIf="auth.hasRole(['MANAGER'])">
+    <a routerLink="/accounts/manage">Account Management</a>
+    <a routerLink="/accounts/list">Account List</a>
+    <a routerLink="/transactions/pending">Approval Queue</a>
+    <a routerLink="/transactions/history">History</a>
+  </ng-container>
+</aside>

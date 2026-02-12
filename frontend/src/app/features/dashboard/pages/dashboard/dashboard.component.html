@@ -1,0 +1,9 @@
+<div class="card p-3">
+  <h3>Welcome, {{ auth.getCurrentUsername() }}</h3>
+  <p class="mb-0" *ngIf="auth.getCurrentRole() === 'CLERK'">
+    Clerk dashboard: use deposit, withdraw, and transaction history.
+  </p>
+  <p class="mb-0" *ngIf="auth.getCurrentRole() === 'MANAGER'">
+    Manager dashboard: use account management, approval queue, and history.
+  </p>
+</div>
