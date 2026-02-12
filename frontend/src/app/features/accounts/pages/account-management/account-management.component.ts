@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { ErrorHandlerService } from '../../../../core/services/error-handler.service';
@@ -9,6 +9,8 @@ import { AccountService } from '../../services/account.service';
   templateUrl: './account-management.component.html'
 })
 export class AccountManagementComponent {
+  private readonly fb = inject(FormBuilder);
+
   isSubmitting = false;
   errorMessage = '';
   successMessage = '';
@@ -19,7 +21,6 @@ export class AccountManagementComponent {
   });
 
   constructor(
-    private readonly fb: FormBuilder,
     private readonly accountService: AccountService,
     private readonly errors: ErrorHandlerService
   ) {}
