@@ -1,0 +1,28 @@
+<div class="login-shell">
+  <section class="hero">
+    <h1>Secure your financial future with us.</h1>
+    <p>Internal bank operations portal</p>
+  </section>
+
+  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+    <h2>Login</h2>
+    <label>
+      Username
+      <input formControlName="username" type="text" />
+    </label>
+    <p class="error-text" *ngIf="form.controls.username.touched && form.controls.username.invalid">Username is required.</p>
+
+    <label>
+      Password
+      <input formControlName="password" type="password" />
+    </label>
+    <p class="error-text" *ngIf="form.controls.password.touched && form.controls.password.invalid">Valid password is required.</p>
+
+    <label>
+      <input type="checkbox" formControlName="rememberMe" /> Remember me
+    </label>
+
+    <app-error-alert [message]="errorMessage"></app-error-alert>
+    <button type="submit" [disabled]="submitting">{{ submitting ? 'Signing in...' : 'Login' }}</button>
+  </form>
+</div>

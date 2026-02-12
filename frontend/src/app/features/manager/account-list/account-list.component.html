@@ -1,0 +1,21 @@
+<div class="card">
+  <h2>Account Management</h2>
+  <form [formGroup]="form" (ngSubmit)="createAccount()">
+    <label>Name <input formControlName="name" /></label>
+    <label>Opening Balance <input type="number" formControlName="initialBalance" /></label>
+    <button type="submit" [disabled]="loading">Create Account</button>
+  </form>
+
+  <app-error-alert [message]="errorMessage"></app-error-alert>
+
+  <table *ngIf="accounts.length">
+    <thead><tr><th>Account</th><th>Name</th><th>Balance</th></tr></thead>
+    <tbody>
+      <tr *ngFor="let account of accounts">
+        <td>{{ account.accountNumber }}</td>
+        <td>{{ account.name }}</td>
+        <td>{{ account.balance }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
