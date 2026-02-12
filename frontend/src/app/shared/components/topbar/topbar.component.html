@@ -1,7 +1,0 @@
-<header class="topbar">
-  <div>
-    <strong>{{ auth.getCurrentRole() ?? 'STAFF' }}</strong>
-    <span class="text-muted ms-2">{{ auth.getCurrentUsername() }}</span>
-  </div>
-  <button class="btn btn-sm btn-dark" (click)="logout()">Logout</button>
-</header>
