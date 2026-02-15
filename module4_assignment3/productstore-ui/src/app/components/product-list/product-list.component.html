@@ -1,0 +1,25 @@
+<div class="table-wrapper">
+  <p *ngIf="loading" class="status">Loading products...</p>
+  <p *ngIf="errorMessage" class="status error">{{ errorMessage }}</p>
+
+  <table *ngIf="!loading && !errorMessage && products.length > 0">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.name }}</td>
+        <td>{{ product.price | currency:'USD' }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.category }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!loading && !errorMessage && products.length === 0" class="status">No products found.</p>
+</div>
