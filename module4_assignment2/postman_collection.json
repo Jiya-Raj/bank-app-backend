@@ -1,0 +1,96 @@
+{
+  "info": {
+    "name": "Module 4 Assignment 2 - JWT",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authenticate",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"teacher1\",\n  \"password\": \"teacher123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/authenticate",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["authenticate"]
+        }
+      }
+    },
+    {
+      "name": "Get Resources",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/resources",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["resources"]
+        }
+      }
+    },
+    {
+      "name": "Create Resource",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "text/plain"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "Advanced JWT"
+        },
+        "url": {
+          "raw": "http://localhost:8080/resources",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["resources"]
+        }
+      }
+    },
+    {
+      "name": "Delete Resource (Teacher only)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/resources/0",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["resources", "0"]
+        }
+      }
+    }
+  ]
+}
